@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <base href="/">
+    <title>Eventers Home</title>
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+<!--top navigation bar-->
+<nav class="cs-navbar">
+    <span class="open-slide">
+        <a href="#" id="open-side">
+            <svg width="30" height="30">
+                <path d="M0,5 30,5" stroke="#fff" stroke-width="5"/>
+                <path d="M0,14 30,14" stroke="#fff" stroke-width="5"/>
+                <path d="M0,23 30,23" stroke="#fff" stroke-width="5"/>
+            </svg>
+        </a>
+    </span>
+    <ul class="top-nav">
+        <li class="cs-nav-brand">
+            <a href="/home">EVENTERS</a>
+        </li>
+        <li class="nav-user">
+            <a href="#login" id="top-login">Login</a>
+        </li>
+        <li class="nav-user">
+            <a href="#register" id="top-register">Register</a>
+        </li>
+        <li class="cs-user-toggle user-enabled" id="nav-user">
+            <a class="cs-top-dropdown cs-username" id="top-user"></a>
+            <ul class="cs-top-dropdown">
+                <li><a href="#profile">profile</a></li>
+                <li><a href="#user-events">my events</a></li>
+            </ul>
+        </li>
+        <li class="nav-user user-enabled" id="nav-logout">
+            <a href="#logout" id="top-logout">Logout</a>
+        </li>
+    </ul>
+</nav>
+<!--end top navigation bar-->
+<!--small screen side menu-->
+<div class="side-nav" id="side-menu">
+    <a href="#" id="side-close" class="cs-btn-close">&times;</a>
+    <a href="#login" class="cs-default" id="side-login">Login</a>
+    <a href="#register" class="cs-default" id="side-register">Register</a>
+    <span class="cs-user cs-username" id="side-user"></span>
+    <a href="#profile" class="cs-user">Profile</a>
+    <a href="#user-events" class="cs-user">My Events</a>
+    <a href="#logout" class="cs-user" id="side-logout">Logout</a>
+</div>
+<!--end side menu-->
+<!--main content area-->
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-md-12" id="home-banner">
+            <h1>browse all of our events</h1>
+            <a href="/events">browse</a>
+        </div>
+        <div class="col-md-4 cs-card" id="new-ev">
+            <!--<h2>New Events</h2>
+            <ul class="cs-card-item">
+                <li>
+                    <a href="/events/#"><h3>Title</h3></a>
+                    <p>description</p>
+                </li>
+            </ul>-->
+        </div>
+        <div class="col-md-4 cs-card" id="pop-ev">
+            <!--<h2>Popular</h2>-->
+        </div>
+        <div class="col-md-4 cs-card" id="ev-cat-list">
+            <!--<h2>Categories</h2>-->
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+</main>
+<!--end main content area-->
+<!--login modal start-->
+<div id="login-modal" class="modal">
+    <form class="modal-content" id="login-form">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+        </div>
+        <div class="modal-body">
+            <div class="cs-error" id="cs-login-error"></div>
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div class="modal-footer">
+            <ul class="modal-btn-group">
+                <li class="modal-btn-item">
+                    <input type="submit" class="cs-btn cs-btn-primary" value="Login" id="login-btn">
+                </li>
+                <li class="modal-btn-item">
+                    <button class="cs-btn cs-btn-secondary cs-swap-btn">Sign Up</button>
+                </li>
+                <li class="modal-btn-item-right">
+                    <button class="cs-btn cs-btn-default cs-cancel-btn">Cancel</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+<!--login modal end-->
+<!--registration modal start-->
+<div id="register-modal" class="modal">
+    <form class="modal-content" id="register-form">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+        </div>
+        <div class="modal-body">
+            <div class="cs-error" id="register-error"></div>
+            <label for="new-username">Username</label>
+            <input type="text" id="new-username" name="new-username" required>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="phone">Phone #</label>
+            <input type="text" id="phone" name="phone" placeholder="ex: 1234567890|(123)456-7890|123-456-7890">
+            <label for="new-password">Password</label>
+            <input type="password" id="new-password" name="new-password" required>
+        </div>
+        <div class="modal-footer">
+            <ul class="modal-btn-group">
+                <li class="modal-btn-item">
+                    <input type="submit" class="cs-btn cs-btn-primary" value="Register" id="register">
+                </li>
+                <li class="modal-btn-item">
+                    <button class="cs-btn cs-btn-secondary cs-swap-btn">Login</button>
+                </li>
+                <li class="modal-btn-item-right">
+                    <button class="cs-btn cs-btn-default cs-cancel-btn">Cancel</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+</div>
+<!--login modal end-->
+<!--toast/snackbar notification-->
+<div id="snackbar"></div>
+<!--main content end-->
+
+<script src="../js/jquery-3.3.1.js"></script>
+<script src="../js/bootstrap.js"></script>
+<script src="../js/index.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/home.js"></script>
+</body>
+</html>
