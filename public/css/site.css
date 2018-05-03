@@ -1,0 +1,558 @@
+:root{
+    --container-bg-color: #333;
+    --left-bg-color: rgba(0,128,0,0.4);
+    --left-button-hover-color: rgba(0,100,11,0.7);
+    --right-bg-color: rgba(43,43,43,0.7);
+    --right-button-hover-color: rgba(92,92,92,0.7);
+    --hover-width: 75%;
+    --other-width: 25%;
+    --speed: 1000ms;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+html, body {
+    background-color: var(--container-bg-color);
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: whitesmoke;
+}
+
+ul {
+    list-style: none;
+}
+
+main {
+    position: relative;
+    width: 100%;
+    max-height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+a:visited {
+    color: #1c94c4;
+}
+
+a:hover {
+    color: #7c7c7c;
+    text-decoration: none;
+}
+
+a:active {
+    color: #0056b3;
+}
+
+
+/*landing page styles*/
+#home-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #DF0300;
+    background-image: url('../images/snowy-mtn.jpg');
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    height: 100vh;
+}
+
+#home-header a{
+    text-decoration: none;
+    color: #DF0300;
+    border: #DF0300 1px solid;
+    padding: 10px 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+/*end landing page styles*/
+
+/*main site styles*/
+.cs-card h2{
+    text-align: center;
+}
+
+.cs-card-item {
+    padding: 0 15px;
+    border: 1px solid rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+
+.cs-card-item h4{
+    text-transform: uppercase;
+}
+
+.cs-card-item small {
+    color: #9fcdff;
+}
+
+.cs-card-item a{
+    color: lightseagreen;
+}
+
+.cs-card-item a:hover{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+#home-banner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    color: whitesmoke;
+    padding: 0;
+    margin: 0;
+    background: url("../images/community.jpeg") center center no-repeat;
+    background-size: cover;
+    height: 60vh;
+    width: 100vw;
+    text-align: center;
+}
+
+#home-banner a {
+    color: whitesmoke;
+    text-decoration: none;
+    border: whitesmoke 1px solid;
+    padding: 10px 20px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/*top navbar styles*/
+.user-enabled, .cs-user, .nav-user {
+    display: none;
+}
+
+.cs-navbar {
+    width: 100%;
+    height: 62px;
+    background-color: rgb(40,40,40);
+}
+
+.top-nav {
+    float: left;
+    margin: 8px 0 0 0;
+}
+
+.nav-user, .cs-nav-brand, .cs-user-toggle {
+    float: left;
+    cursor: pointer;
+}
+
+.nav-user a, .cs-nav-brand a {
+    position: relative;
+    border: none;
+    display: block;
+    color: ghostwhite;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.cs-top-dropdown{
+    display: none;
+    position: absolute;
+    background-color: rgba(40,40,40,0.8);
+    z-index: 1;
+}
+
+.cs-top-dropdown li {
+    width: 180px;
+}
+
+.cs-user-toggle a {
+    position: relative;
+    border: none;
+    display: block;
+    color: ghostwhite;
+    padding: 14px 16px;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.cs-user-toggle:hover ul.cs-top-dropdown {
+    display: block;
+}
+
+.cs-user-toggle a:hover, .nav-user:hover a, .cs-nav-brand:hover a {
+    background-color: #ddd;
+    color: #000;
+}
+/*small screen menu styles*/
+.open-slide {
+    display: none;
+    position: relative;
+    float: left;
+    padding: 14px;
+}
+
+.side-nav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: #111;
+    opacity: 0.9;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition:  0.5s;
+}
+
+.side-nav span {
+    padding: 10px 10px 10px 30px;
+    font-size: 40px;
+    color: ghostwhite;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-nav a{
+    padding: 10px 10px 10px 30px;
+    text-decoration: none;
+    font-size: 22px;
+    color: ghostwhite;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-nav a:hover{
+    color: #666;
+}
+
+.side-nav .cs-btn-close {
+    position: absolute;
+    top: 0;
+    right: 22px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.cs-default, .cs-user {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+/*end small screen menu styles*/
+/*end top navbar*/
+
+/*events page side navigation*/
+#nav-feed ul {
+    margin-top: 15%;
+}
+#nav-feed a.active {
+    background: rgba(92,92,92,0.8);
+    color: ghostwhite;
+}
+
+#nav-feed a {
+    color: lightseagreen;
+    text-transform: uppercase;
+}
+
+#nav-feed a:hover {
+    background: rgba(220,220,220,0.5);
+    color: #000;
+}
+/*end event page side navigation*/
+
+/*events page table display*/
+#event-list {
+    margin-top: 5%;
+}
+
+#event-list.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: #444444;
+}
+
+#event-list thead{
+    color: teal;
+}
+
+#event-list > tbody > tr > th,
+#event-list > tfoot > tr > th,
+#event-list > thead > tr > td,
+#event-list > tbody > tr > td,
+#event-list > tfoot > tr > td {
+    border-top: 1px solid #111111;
+}
+
+#event-list > thead > tr > th {
+    border-bottom: 2px solid #111111;
+}
+
+#event-list.table-striped tbody tr:hover{
+    background-color: rgba(0,100,200,0.4);
+    cursor: pointer;
+}
+/*end events page table display*/
+
+/*single event page styles*/
+#event-options {
+    position: relative;
+    float: left;
+    height: 60px;
+    width: 100%;
+    padding: 8px;
+    font-size: 30px;
+}
+
+.event-option {
+    display: block;
+    float: left;
+    padding: 8px 14px;
+    background: #1b1e21;
+    border-radius: 10px;
+}
+
+small.date {
+    color: #9fcdff;
+}
+
+small.contact {
+    color: teal;
+}
+/*end single event page styles*/
+
+/*modal styles*/
+#login-error{
+    margin: 4px;
+    width: 100%;
+}
+
+.cs-btn {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 10px;
+    margin: 4px;
+    padding: 6px;
+    border: none;
+    color: #ffffff;
+}
+
+.cs-btn-primary {
+    background: #0044ff;
+}
+
+.cs-btn-default {
+    background: #269abc;
+}
+
+.cs-btn-secondary {
+    background-color: #3c763d;
+}
+
+.cs-btn:hover{
+    background-color: #080808;
+    color: whitesmoke;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none;
+    position: fixed; /* Stay in place */
+    z-index: 99; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    position: relative;
+    float: left;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+    background-color: var(--container-bg-color);
+    color: white;
+    text-align: center;
+}
+
+.modal-body {
+    padding: 0;
+    margin: 0;
+    border: none;
+    position: relative;
+    float: left;
+    width: 100%;
+    background-color: #fefefe;
+}
+
+.modal-body label, .modal-body input {
+    color: #000;
+    position: relative;
+    float: left;
+    margin: 6px;
+    padding: 2px 0;
+    width: 95%;
+}
+
+.modal-footer {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: var(--container-bg-color);
+    color: white;
+}
+
+.modal-btn-group {
+    margin: 0;
+    padding: 0;
+}
+
+.modal-btn-item > button, .modal-btn-item > input {
+    position: relative;
+    float: left;
+    padding: 14px;
+}
+
+.modal-btn-item-right > button, .modal-btn-item-right > input {
+    position: relative;
+    float: right;
+    padding: 14px;
+}
+
+.modal-btn-item {
+    display: block;
+}
+
+.cs-error {
+    display: none;
+    color: red;
+    font-weight: bold;
+}
+/*end login styles*/
+/*snackbar notification styles*/
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #000; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 99; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 20vh;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 20vh; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 20vh; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 20vh; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 20vh; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+/*end snackbar notification styles*/
+
+@media(max-width: 568px) {
+    .modal-content {
+        width: 100%;
+    }
+
+    .nav-user, a.cs-user, span.caret {
+        display: none;
+    }
+
+    .open-slide {
+        display: block;
+    }
+}
+
+@media(min-width: 570px) {
+
+    .open-slide, .user-enabled, a.cs-user {
+        display: none;
+    }
+}
