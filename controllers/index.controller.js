@@ -61,9 +61,17 @@ module.exports = () => {
         res.redirect('/home');
     };
 
+    // Verify user is logged in
+    const verify = (req, res) => {
+       if (!req.user)
+           res.send(false);
+       else
+           res.send(true);
+    };
+
     // home page route
     const getHomePage = (req, res) => {
-        res.render('home.html');
+      res.render('home.html');
     };
 
     // landing page route
@@ -77,6 +85,7 @@ module.exports = () => {
         logout: logout,
         register: register,
         getHomePage: getHomePage,
-        getIndexPage: getIndexPage
+        getIndexPage: getIndexPage,
+        verify: verify
     }
 };

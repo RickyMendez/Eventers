@@ -11,6 +11,5 @@ module.exports = (express) => {
 
     router.route('/remove').post(ctrl.removeUser);
 
-
     return router;
 };

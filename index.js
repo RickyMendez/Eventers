@@ -2,7 +2,7 @@ const express = require('express'),
     bodyParser = require('body-parser'),
     ejs = require('ejs'),
     session = require('express-session'),
-    config = require('./config/config'),
+    config = require('./config/config.json'),
     cookieParser = require('cookie-parser');
 
 const app = express();

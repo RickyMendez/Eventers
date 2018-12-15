@@ -5,6 +5,8 @@ module.exports = (express) => {
 
     router.route('/').get(ctrl.getIndexPage);
 
+    router.route('/verify').get(ctrl.verify);
+
     router.route('/home').get(ctrl.getHomePage);
 
     router.route('/login').post(ctrl.login);

@@ -13,6 +13,10 @@ module.exports = () => {
         res.render('profile.html');
     };
 
+    const verify = (req, res) => {
+        res.send(true).end();
+    };
+
     const removeUser = (req, res) => {
         userRepo.removeUser(req.params.id, (result) => {
             console.log(result);
@@ -30,6 +34,7 @@ module.exports = () => {
         userPage: userPage,
         removeUser: removeUser,
         changeUserPermissions: changeUserPermissions,
+        verify: verify,
         auth: auth
     }
 };

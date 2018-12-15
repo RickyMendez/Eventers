@@ -8,6 +8,15 @@ $(document).ready(function () {
         userNavToggle();
     }());
 
+    // Verify user is logged in on the server
+    $.get("/verify", function (loggedIn) {
+      if (!loggedIn){
+        localStorage.removeItem('user');
+        user = null;
+        userNavToggle();
+      }
+    });
+
     // check and set user
     function setUser() {
         if (localStorage.user != undefined){

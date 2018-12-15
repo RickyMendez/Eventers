@@ -10,7 +10,7 @@
   "author": "Ricky Mendez",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^2.0.1",
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.2",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
