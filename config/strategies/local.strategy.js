@@ -1,6 +1,5 @@
 const passport = require('passport');
 const MongoClient = require('mongodb').MongoClient;
-const bcrypt = require('bcrypt');
 const config = require('../config');
 const {Strategy} = require('passport-local');
 
